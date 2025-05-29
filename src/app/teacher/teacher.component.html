@@ -1,0 +1,13 @@
+<div class="staff-dashboard">
+  <h2>Staff Dashboard</h2>
+
+  <div *ngIf="staff; else noData" class="staff-info">
+    <p><strong>Name:</strong> {{ staff.name }}</p>
+    <p><strong>Subject:</strong> {{ staff.subject }}</p>
+    <p><strong>Email:</strong> {{ staff.email }}</p>
+  </div>
+
+  <ng-template #noData>
+    <p class="no-data">No staff data found.</p>
+  </ng-template>
+</div>

@@ -1,0 +1,15 @@
+<div class="student-dashboard">
+  <h2>Student Dashboard</h2>
+
+  <div *ngIf="check; else noData" class="student-info">
+    <p><strong>Name:</strong> {{ student.name }}</p>
+    <p><strong>Class:</strong> {{ student.class }}</p>
+    <p><strong>Math Marks:</strong> {{ student.marks.math }}</p>
+    <p><strong>Science Marks:</strong> {{ student.marks.science }}</p>
+    <p><strong>Attendance:</strong> {{ student.attendance }}%</p>
+  </div>
+
+  <ng-template #noData>
+    <p class="no-data">No student data found.</p>
+  </ng-template>
+</div>

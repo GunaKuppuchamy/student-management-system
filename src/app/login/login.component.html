@@ -1,0 +1,23 @@
+
+<div class="login-container">
+  <select [(ngModel)]="currentRole" required>
+    <option value="" disabled selected>Select Role</option>
+    <option value="Principal">Principal</option>
+    <option value="Teacher">Teacher</option>
+    <option value="Student">Student</option>
+  </select>
+
+  <input [(ngModel)]="name" placeholder="Name" *ngIf="currentRole === 'Teacher'" />
+
+  <div *ngIf="currentRole === 'Student'">
+    <h6>Enter Student ID</h6>
+    <input [(ngModel)]="id" type="number" placeholder="Id" />
+  </div>
+
+  <input [(ngModel)]="pc" placeholder="Principal Code" *ngIf="currentRole === 'Principal'" />
+
+  <h1 *ngIf="currentRole">Selected: {{ currentRole }}</h1>
+
+  <button (click)="navigate()">Login</button>
+</div>
+<router-outlet />

@@ -1,0 +1,81 @@
+<div class="dashboard-container">
+  <h2>Principal Dashboard</h2>
+
+  <section>
+    <h3>{{ editStaffIndex === -1 ? 'Add Staff' : 'Edit Staff' }}</h3>
+    <div class="form-group">
+      <input [(ngModel)]="newStaff.name" placeholder="Name" />
+      <input [(ngModel)]="newStaff.subject" placeholder="Subject" />
+      <input [(ngModel)]="newStaff.email" placeholder="Email" />
+      <button class="primary" (click)="addOrUpdateStaff()">
+        {{ editStaffIndex === -1 ? 'Add Staff' : 'Update Staff' }}
+      </button>
+      <button *ngIf="editStaffIndex !== -1" class="secondary" (click)="cancelStaffEdit()">Cancel</button>
+    </div>
+
+    <h3>Staff List</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Subject</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let staff of staffs; let i = index">
+          <td>{{ staff.name }}</td>
+          <td>{{ staff.subject }}</td>
+          <td>{{ staff.email }}</td>
+          <td>
+            <button (click)="startEditStaff(i)">Edit</button>
+            <button (click)="deleteStaff(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h3>{{ editStudentIndex === -1 ? 'Add Student' : 'Edit Student' }}</h3>
+    <div class="form-group">
+      <input [(ngModel)]="newStudent.name" placeholder="Name" />
+      <input [(ngModel)]="newStudent.class" placeholder="Class" />
+      <input [(ngModel)]="newStudent.marks.math" type="number" placeholder="Math Marks" />
+      <input [(ngModel)]="newStudent.marks.science" type="number" placeholder="Science Marks" />
+      <input [(ngModel)]="newStudent.attendance" type="number" placeholder="Attendance (%)" />
+      <button class="primary" (click)="addOrUpdateStudent()">
+        {{ editStudentIndex === -1 ? 'Add Student' : 'Update Student' }}
+      </button>
+      <button *ngIf="editStudentIndex !== -1" class="secondary" (click)="cancelStudentEdit()">Cancel</button>
+    </div>
+
+    <h3>Student List</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Class</th>
+          <th>Math Marks</th>
+          <th>Science Marks</th>
+          <th>Attendance (%)</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students; let i = index">
+          <td>{{ student.name }}</td>
+          <td>{{ student.class }}</td>
+          <td>{{ student.marks.math }}</td>
+          <td>{{ student.marks.science }}</td>
+          <td>{{ student.attendance }}</td>
+          <td>
+            <button (click)="startEditStudent(i)">Edit</button>
+            <button (click)="deleteStudent(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
